@@ -322,7 +322,7 @@
             </iframe>
         </div>
         <!-- <figcaption class="plot-caption"><strong>Figure 1.</strong> Interactive: Annual median price per m² (DKK) with 95% confidence intervals. Hover for details. Vertical dashed lines mark 2008 financial crisis and COVID‑19 onset.</figcaption> -->
-        <figcaption class="plot-caption"><strong>Figure 1.</strong> Interactive: .</figcaption>
+        <figcaption class="plot-caption"><strong>Figure 1.</strong> Interactive: This choropleth map illustrates the cumulative spatial distribution of mean housing prices per square meter (m²) across all Danish postal codes over a 32-year longitudinal period. The color scale utilizes a high-contrast gradient (Turbo), where deep red and orange represent the upper decile of market values (>45,000 DKK/m²), transitioning through yellow, green, teal, and blue to deep violet for the lowest value quintiles (<10,000 DKK}/m²).</figcaption>
     </figure>
     
     <!-- 2. Temporal evolution: price by housing type -->
@@ -349,6 +349,39 @@
     <p>The 2008 financial crisis induced a sharp but V‑shaped correction, especially in urban segments. COVID‑19 acted as a structural break: post‑2020 appreciation in summerhouses and townhouses diverged from their long‑term trends by more than 2 standard deviations, hinting at overvaluation risk in leisure property.</p>
 
 
+    <h2>2.1. Asset stratification and the urbanisation of value</h2>
+    
+    <p>
+    A pronounced hierarchical divergence is observable across housing asset classes, reflecting differentiated exposure to demand dynamics and capital inflows. Apartments consistently emerge as the highest-velocity asset class, exhibiting an accelerated growth trajectory that significantly outpaces traditional residential forms such as Villas and Townhouses. This pattern signals a structural shift in valuation toward high-density urban living spaces.
+    </p>
+    <br></br>
+    
+    <p>
+    Summerhouses display a distinct and increasingly decoupled growth trajectory relative to primary residences. While characterised by higher price volatility, their long-term trend indicates a rising “leisure premium,” suggesting that recreational real estate has evolved into an attractive vehicle for speculative capital. This divergence reflects a growing willingness to price environmental amenities and lifestyle attributes independently of core housing needs.
+    </p>
+    <br></br>
+    
+    <p>
+    In contrast, agricultural properties (Farms) follow a markedly conservative growth path. Their trajectories remain comparatively flat over the study period and are accompanied by wider confidence intervals, particularly in earlier years. This reflects lower transaction volumes and a market structure that is less sensitive to the urban-driven price dynamics observed in the Apartment segment. As such, farms occupy a stabilising, low-volatility position within the housing ecosystem.
+    </p>
+    <br></br>
+    
+    <p>
+    Exogenous shocks, notably the 2008 global financial crisis and the 2020 COVID-19 pandemic, introduce structural discontinuities across all asset classes. While each segment experienced contraction in the aftermath of the 2008 crisis, recovery trajectories were highly heterogeneous. Apartments and Summerhouses underwent a rapid “V-shaped” rebound, whereas Villas and Townhouses exhibited more gradual, linear recoveries. This asymmetric adjustment further amplified divergence across asset classes.
+    </p>
+    <br></br>
+    
+    <p>
+    Over the full observation window, the widening gap between Apartments and Villas provides a quantitative measure of the ongoing “urbanisation of wealth.” High-density urban housing has effectively transitioned into a premium asset class, increasingly decoupled from traditional detached housing in both growth velocity and valuation level. This evolution underscores a broader reallocation of capital toward spatially concentrated, amenity-rich environments.
+    </p>
+    <br></br>
+    
+    <p>
+    <i>Methods:</i> Asset-specific price dynamics were estimated using linear regression models of the form <i>y = mx + b</i>, applied to annual mean price indices. Trend coefficients capture the relative velocity of appreciation across housing types. Confidence intervals were derived from the standard error of residuals under a normality assumption (α = 0.05). To ensure comparability across heterogeneous transaction volumes, prices were standardised using annual averages. Structural break markers for 2008 and 2020 are included to contextualise regime shifts within the temporal series.
+    </p>
+
+
+    
     <!-- Integration for Section 2 -->
     <!-- Section 2: Introduction - Figure 1 -->
     <figure class="plot-figure">
@@ -360,7 +393,7 @@
             </iframe>
         </div>
         <!-- <figcaption class="plot-caption"><strong>Figure 1.</strong> Interactive: Annual median price per m² (DKK) with 95% confidence intervals. Hover for details. Vertical dashed lines mark 2008 financial crisis and COVID‑19 onset.</figcaption> -->
-        <figcaption class="plot-caption"><strong>Figure 1.</strong> Interactive: This choropleth map illustrates the cumulative spatial distribution of mean housing prices per square meter (m²) across all Danish postal codes over a 32-year longitudinal period. The color scale utilizes a high-contrast gradient (Turbo), where deep red and orange represent the upper decile of market values (>45,000 DKK/m²), transitioning through yellow, green, teal, and blue to deep violet for the lowest value quintiles (<10,000 DKK}/m²).</figcaption>
+        <figcaption class="plot-caption"><strong>Figure 2.</strong> Interactive: This figure illustrates the mean annual price per square meter (m²) for five distinct residential asset classes: Apartments (blue), Farms (orange), Summerhouses (green), Townhouses (red), and Villas (purple). Observed data (solid lines with markers) are overlaid with ordinary least squares (OLS) linear regression trends (dotted lines). Shaded regions represent the 95% confidence intervals (CI), reflecting the precision of the trend estimates and the underlying market volatility for each category. </figcaption>
     </figure>
     
     <!-- 3. Regional divergence -->
