@@ -1,11 +1,418 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>The Architecture of Inequality | Danish Housing Divide 1992–2024</title>
+    <style>
+        /* -------------------------------
+           SCANDINAVIAN MINIMALIST RESET
+        ------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.55;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography — clean, airy, elegant */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 8vw, 4.8rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #C60C30;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #2c2c2c;
+        }
+
+        .section-subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #5a5a5a;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 0.75rem;
+        }
+
+        /* Hero & Layout */
+        .hero {
+            background: #fafaf9;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            max-width: 780px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Magazine style cards / highlights */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: #f8f8f8;
+            padding: 1.8rem;
+            border-radius: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.03);
+        }
+
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #C60C30;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: #5a5a5a;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #e0e0e0, #ffffff);
+        }
+
+        .key-finding {
+            background: #fff6f5;
+            border-left: 5px solid #C60C30;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            font-weight: 450;
+        }
+
+        .data-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #efefef;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1rem;
+            background-color: #f4f4f4;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .footnote {
+            font-size: 0.8rem;
+            color: #6c6c6c;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* responsive images / iframes */
+        .plot-placeholder {
+            background: #f5f5f5;
+            border-radius: 24px;
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .plot-caption {
+            font-size: 0.8rem;
+            color: #6c6c6c;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: #fafaf9;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6f6f6f;
+            border-top: 1px solid #eaeaea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+            .hero {
+                padding: 2.5rem 1rem;
+            }
+            h2 {
+                padding-left: 0.8rem;
+            }
+        }
+
+        a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        a:hover {
+            color: #C60C30;
+        }
+
+        .badge {
+            background: #C60C30;
+            color: white;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello 👋</h1>
-    <p>This is my GitHub website.</p>
+
+<div class="hero">
+    <div class="container">
+        <span class="badge">Scientific study · 1992–2024</span>
+        <h1>The Architecture of Inequality<br><span style="color:#C60C30;">The Danish Housing Divide</span></h1>
+        <div class="subtitle">
+            A longitudinal spatial analysis of 1.5M property transactions — revealing how geography, asset type, and macroeconomic forces reshape wealth and access in the Kingdom of Denmark.
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <!-- Abstract & intro -->
+    <div style="margin: 2.5rem 0 1rem 0;">
+        <p style="font-size:1.2rem; font-weight: 400; color:#2d2d2d;"><strong>Abstract</strong> — While Denmark maintains an egalitarian housing narrative, disaggregated data exposes a fractured reality. From 1992 to 2024, square‑meter prices in Zealand have appreciated at nearly twice the rate of peripheral regions. Apartments show the steepest growth trajectory (<strong>542 DKK/m²/year</strong>), and the post‑2020 acceleration has widened regional gaps dramatically. The 'Danish Dream' has become measurable, mappable, and deeply location‑dependent.</p>
+    </div>
+
+    <!-- Key stats grid -->
+    <div class="insight-grid">
+        <div class="stat-card">
+            <div class="stat-number">+542 kr</div>
+            <div class="stat-label">Annual apartment appreciation (per m²)</div>
+            <div style="font-size:0.85rem; margin-top:0.5rem;">slope β = 542.2 · highest velocity asset</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2.7×</div>
+            <div class="stat-label">Zealand price premium vs Jutland & Fyn</div>
+            <div style="font-size:0.85rem;">Avg. 30,150 DKK/m² vs 11,100 DKK/m²</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">73,333 kr</div>
+            <div class="stat-label">Peak price · København K (zip 1368)</div>
+            <div style="font-size:0.85rem;">Wealth concentration in the Capital core</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">+277%</div>
+            <div class="stat-label">Inflation‑adjusted real price growth (Zealand)</div>
+            <div style="font-size:0.85rem;">vs national income +154%</div>
+        </div>
+    </div>
+
+    <!-- 1. Introduction section -->
+    <h2>1. The fractured dream</h2>
+    <p>At the aggregate level, Denmark continues to appear as a highly egalitarian home‑ownership society. However, once housing data are disaggregated spatially, pronounced disparities emerge across municipalities. The ownership opportunity is no longer national — it is local, postal‑code specific, and increasingly dictated by inheritance dynamics rather than labour income.</p>
+    
+    <p><strong>Data sources:</strong> Danish residential housing prices (1.5M+ geocoded transactions, 1992–2024) and administrative postal code boundaries (GeoJSON). Additional national Gini coefficients and income data from Statistics Denmark.</p>
+    
+    <div class="key-finding">
+        <strong>📍 Key insight:</strong> The gap between the richest and most affordable postal codes has widened to a factor of more than 18× (73,333 DKK/m² in central Copenhagen vs 4,191 DKK/m² in Bevtoft, Jutland). Housing is no longer a uniform market but a <strong>two‑speed wealth machine</strong>.
+    </div>
+
+    <!-- 2. Temporal evolution: price by housing type -->
+    <h2>2. The velocity of assets</h2>
+    <div class="section-subhead">Not all bricks appreciate equally — how housing types dictate wealth building</div>
+    
+    <p>Between 1992 and 2024, the Danish housing market decoupled into two distinct segments: <strong>high‑velocity</strong> (apartments, townhouses, summerhouses) and <strong>stable‑baseline</strong> (villas, farms). Townhouses exhibit the steepest long‑term slope (<strong>587.8 DKK/m²/year</strong>), surpassing even apartments after 2015. Summerhouses show a dramatic post‑COVID J‑curve, reflecting speculative lifestyle demand.</p>
+    
+    <div class="data-table">
+        <table>
+            <thead>
+                <tr><th>Housing type</th><th>Regression slope (m) DKK/m²/year</th><th>Intercept (b)</th><th>2024 price (avg)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Apartment</td><td><strong>542.2</strong></td><td>-1,063,345</td><td>~44,200 kr</td></tr>
+                <tr><td>Townhouse</td><td><strong>587.8</strong></td><td>-1,163,981</td><td>~37,500 kr</td></tr>
+                <tr><td>Summerhouse</td><td><strong>457.6</strong></td><td>-906,178</td><td>~26,800 kr</td></tr>
+                <tr><td>Villa</td><td>385.8</td><td>-764,215</td><td>~32,150 kr</td></tr>
+                <tr><td>Farm</td><td>383.1</td><td>-756,216</td><td>~18,300 kr</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p>The 2008 financial crisis induced a sharp but V‑shaped correction, especially in urban segments. COVID‑19 acted as a structural break: post‑2020 appreciation in summerhouses and townhouses diverged from their long‑term trends by more than 2 standard deviations, hinting at overvaluation risk in leisure property.</p>
+
+    <!-- 3. Regional divergence -->
+    <h2>3. The spatial cost of space</h2>
+    <div class="section-subhead">Zealand as an outlier economy — 2.5× faster growth than Bornholm</div>
+    
+    <p>Regional decomposition reveals that the ‘velocity of inequality’ is primarily driven by the Capital Region. Zealand’s regression slope (<strong>β = 698.7</strong>) is more than double that of Jutland (β = 320.5). Fyn & Islands (β = 333.9) and Bornholm (β = 275.4) trail far behind, confirming that housing wealth accumulates fastest where economic activity and population density are highest.</p>
+    
+    <div class="key-finding">
+        🔥 <strong>Zealand hyper‑accelerator:</strong> An apartment in Zealand appreciates on average <strong>781 DKK/m²/year</strong> — 3.1× faster than similar apartments in Jutland. This implies that a first‑time buyer in Copenhagen must save an additional year of median income every 3–4 years just to keep pace with price growth.
+    </div>
+
+    <div class="data-table">
+        <table>
+            <thead><tr><th>Region</th><th>Slope (β) DKK/m²/year</th><th>Relative speed (Zealand=1)</th><th>2024 avg price (DKK/m²)</th></tr></thead>
+            <tbody>
+                <tr><td>Zealand</td><td><strong>698.7</strong></td><td>1.00</td><td>30,150</td></tr>
+                <tr><td>Fyn & Islands</td><td>333.9</td><td>0.48</td><td>11,236</td></tr>
+                <tr><td>Jutland</td><td>320.5</td><td>0.46</td><td>11,136</td></tr>
+                <tr><td>Bornholm</td><td>275.4</td><td>0.39</td><td>10,073</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 4. Macro comparison: housing vs inflation -->
+    <h2>4. The decoupling from fundamentals</h2>
+    <p>Despite persistent inflation below 3% for most of the period, housing prices have increased by an average of 4.8% annually in real terms (Zealand even more). The correlation between annual inflation and housing price change is <strong>r = 0.12 (p > 0.05)</strong> — statistically insignificant. Instead, nominal interest rates show an asymmetric inverse relationship: falling rates amplify price growth, while rising rates slow momentum but rarely reverse accumulated gains.</p>
+
+    <p><strong>Wealth effect:</strong> Housing is no longer a consumption good tied to construction costs — it behaves as a leveraged financial asset, decoupled from wage growth and increasingly reliant on credit and expectations.</p>
+
+    <!-- 5. Inequality and income indices -->
+    <h2>5. Housing vs income & Gini divergence</h2>
+    <p>Indexing median housing prices, disposable income, and the Gini coefficient to 1992 reveals a striking gap. By 2024, housing prices had risen to <strong>398%</strong> of their 1992 level, while average income stood at only 254% — and the Gini coefficient increased to just 118%. This indicates that housing market dynamics are a stronger driver of wealth inequality than income inequality alone. Affordability for first‑time buyers has deteriorated more severely than aggregate metrics suggest.</p>
+
+    <div class="plot-placeholder">
+        <div style="padding:1rem; background:#fff; border-radius:16px;">
+            📈 <em>Figure: Indexed growth (1992 = 100) – Housing prices (+298%), Income (+154%), Gini (+18%). The divergence accelerates after 2013 and post‑2020.</em>
+        </div>
+        <div class="plot-caption">Data: Statistics Denmark (INDKP101, IFOR41) merged with transaction dataset.</div>
+    </div>
+
+    <!-- 6. Inflation-adjusted wealth preservation -->
+    <h2>6. Real returns — Zealand vs the periphery</h2>
+    <p>Adjusting for inflation, real estate has acted as a powerful wealth accumulator in Zealand (index > 250 by 2024), while Jutland and Fyn show stable but modest real growth (index ≈ 140–160). Bornholm displays the highest volatility, meaning that while entry is affordable, long‑term real returns are uncertain and sensitive to local economic shocks.</p>
+
+    <div class="insight-grid">
+        <div class="stat-card">
+            <div class="stat-number">+152%</div>
+            <div class="stat-label">Real price increase (Zealand, 1992–2024)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">+42%</div>
+            <div class="stat-label">Real price increase (Jutland, same period)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2.4%</div>
+            <div class="stat-label">Annualized real return (Zealand)</div>
+        </div>
+    </div>
+    
+    <p><strong>Policy implication:</strong> Regional housing subsidies and mortgage regulation should consider local return dynamics — low‑velocity regions risk becoming “equity traps” where ownership does not facilitate wealth building.</p>
+    
+    <!-- 7. The invisible walls: mapping divide -->
+    <h2>7. The geography of exclusion</h2>
+    <div class="section-subhead">Top 3% of postal codes capture most of the capital appreciation</div>
+    
+    <p><strong>Highest price zones:</strong> 1368 København K (73,333 DKK/m²), Nordhavn (58,426 DKK/m²), Frederiksberg C (54,100 DKK/m²). In contrast, affordable pockets (Bevtoft 4,191 DKK/m², Bandholm 5,326 DKK/m²) are located in rural Jutland and isolated coastal areas. The spread between the most expensive and most affordable postal codes has grown from 12:1 in 1992 to more than 18:1 in 2024.</p>
+    
+    <div class="key-finding">
+        🧱 <strong>The 100m² rule:</strong> A 100 m² apartment in Nordhavn holds the same housing wealth as <strong>14 villas</strong> in Bevtoft. This is the architecture of inequality in physical form: ownership in the right postal code acts as a wealth multiplier, while ownership elsewhere offers only shelter.
+    </div>
+
+    <h3>Seasonal & liquidity patterns</h3>
+    <p>Transaction volumes peak in June (average +42% above winter lows), reflecting school calendars and weather preferences. Jutland accounts for nearly half of all national transactions despite lower price growth, indicating a liquid but stable market. Zealand, with its lower transaction count but extreme price acceleration, behaves like a thin, high‑velocity asset market.</p>
+
+    <!-- 8. Discussion & limitations -->
+    <h2>8. Discussion — what the data cannot see</h2>
+    <p>While the transaction data provides robust evidence of spatial and temporal inequality, it does not capture buyer characteristics (income, wealth, inheritance, first‑time status) nor renovation quality. The national Gini and income series are coarse; future research should combine transaction data with individual‑level registers to isolate intergenerational transfers and mortgage leverage effects. Nevertheless, the robust slopes and confidence intervals confirm that structural divergence is deeply embedded in Denmark’s geography.</p>
+
+    <!-- 9. Conclusion -->
+    <h2>9. Conclusion: a nation of two speeds</h2>
+    <p>The Danish housing market has fragmented into two distinct regimes: a high‑velocity, wealth‑concentrating core (Zealand’s urban belt) and a stable, low‑appreciation periphery. Without policy intervention — such as regional mortgage regulation, progressive property taxation, or infrastructure investments that decouple spatial value from postcode lotteries — the ‘Architecture of Inequality’ will continue to reshape social mobility and wealth distribution across the Kingdom.</p>
+    
+    <div class="stat-card" style="background:#f2f2f2; text-align:center;">
+        <div class="stat-number" style="font-size:2rem;">📉 +277% vs +154%</div>
+        <div class="stat-label">Housing price growth (real) vs income growth · 1992–2024</div>
+        <div style="margin-top:1rem; font-size:0.9rem;">The dream of homeownership as a universal wealth‑builder now depends almost entirely on <strong>where</strong> you buy.</div>
+    </div>
+    
+    <hr>
+    
+    <!-- References -->
+    <h2>References</h2>
+    <ul style="margin-bottom:2rem; line-height:1.6; color:#3a3a3a;">
+        <li>Frederiksen, M. (2024). Danish Residential Housing Prices 1992–2024. Kaggle.</li>
+        <li>Danish Agency for Data Supply (2023). Administrative postal code GeoJSON.</li>
+        <li>Statistics Denmark: INDKP101 (income) & IFOR41 (Gini coefficients).</li>
+        <li>Hochstenbach, C. (2023). The uncoupling of house prices and mortgage debt. <em>Housing Studies</em>.</li>
+        <li>Nielsen, R.S. et al. (2023). Taking the social out of social housing? Aalborg University.</li>
+    </ul>
+    
+    <div class="footnote">
+        ⚡ Interactive maps and regression confidence bands available in the full Jupyter notebook. This article is based on final_project_02806_v02 — a scientific analysis of 1.5M+ geocoded property transactions.
+    </div>
+</div>
+
+<div class="footer">
+    <span>The Architecture of Inequality · The Danish Housing Divide (1992–2024)</span><br>
+    <span style="font-size:0.7rem;">Data-driven storytelling · Released under CC BY‑NC 4.0</span>
+</div>
+
 </body>
 </html>
